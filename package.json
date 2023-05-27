@@ -4,7 +4,7 @@
   "description": "Automating mongoDb schema",
   "main": "server/server.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "nodemon server/server.js & webpack-dev-server",
     "fe-dev": "webpack-dev-server --mode development --open --hot"
   },
   "author": "Goblin Gang",

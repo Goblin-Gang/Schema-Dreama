@@ -11,6 +11,8 @@ const path = require('path');
 //declare port
 const cors = require('cors')
 //require cors
+const formController = require('./controllers/formController')
+//require in the controllers
 const PORT = 3000;
 //listen-connect to server
 app.listen(PORT, () => {
@@ -18,11 +20,9 @@ app.listen(PORT, () => {
   });
   
 
-
-
-
-
 //--------------STANDARD MIDDLEWARE (JSON, FORM PARSER, CORS)----------------//
+
+app.use(cors())
 
 app.use(express.static(path.resolve(__dirname, './client')))
 
@@ -34,14 +34,13 @@ app.use(express.urlencoded())
 
 //invoke form parser
 
-app.use(cors())
+ 
 //invoke cors 
 
 
-app.use('/', (req, res) => {
-    res.status(200).json('not working yet')
-})
-
+// app.use('/', (req, res) => {
+//     res.status(200).json('not working yet')
+// })
 
 
 //------------------SERVER REQUESTS------------------
@@ -54,21 +53,33 @@ mongoose.connect(MONGO_URI)
 //GET for static HTML
 
 //POST for create document
+app.post('/', formController.createDocument, (req, res) => {
+    return res.status(200).send(res.locals.id)
+})
 
 //DELETE for delete document
+app.delete('/', formController.deleteDocument, (req, res) => {
+    return res.status(200).send('ahhh my legs')
+})
+
 
 //PATCH for update document
 
+app.patch('/', formController.updateDocument, (req, res) => {
+    return res.status(200).json(res.locals.updatedDoc)
+})
+
+
+//GET to return all past documents
+app.get('/getalldocuments', formController.getAllDocuments, (req, res) => {
+    return res.status(200).json(res.locals.allDocuments)
+});
+
 //GET for selecting past document
 
-
-
-
-
-
-
-
-
+app.get('/:id', formController.getOneDocument, (req, res) => {
+    return res.status(200).json(res.locals.retrievedDocument)
+})
 
 
 //------------------ERROR HANDLERS------------------
