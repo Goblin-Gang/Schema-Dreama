@@ -18,6 +18,7 @@ function App() {
     setKvp(newState);
   };
 
+
   schemaFunc.addRow = () => {
     const newState = structuredClone(kvpArr);
     newState.push({ name: '', type: 'string', require: false });
@@ -25,9 +26,15 @@ function App() {
   };
 
   schemaFunc.saveSchema = () => {
-    fetch('localhost:3000', {
-      headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000/' },
-      body: { id: 'HARD CODE ME HERE', form: JSON.stringify(kvpArr) },
+    fetch('/', {
+      method: "PATCH",
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:3000/',
+         'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({ id: '6472390fdbeb9b56b2f98835', form: JSON.stringify(kvpArr) }),
+      mode: 'cors'
+
     })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
