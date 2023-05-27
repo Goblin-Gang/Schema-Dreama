@@ -1,5 +1,9 @@
 import React, { Component, useState } from 'react';
+
+import PastProjects from './PastProjects.jsx';
+import InputButton from './InputButton.jsx';
 import SchemaMaker from './SchemaMaker.jsx';
+
 
 function App() {
   //State for Key-Value Pairs
@@ -43,8 +47,8 @@ function App() {
   return (
     <div>
       <h1>Schema Dreama</h1>
-      <div>InputButton</div>
-      <div>PastProjects</div>
+      <span><InputButton /></span>
+      <div> <PastProjects /> </div>
       <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
     </div>
   );
