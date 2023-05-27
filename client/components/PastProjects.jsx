@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from "react";
 
-const dogs = [
-    {name:'Seven', legs: 4, breed: "German Shepard", id: 1},
-    {name:'Comet', legs: 4, breed: "Terrier", id: 2},
-    {name:'DA', legs: 4, breed: "Coton de Tulear", id: 3}
-]
+
 function PastProjects(){
-    let newDogId = Math.floor(Math.random() * 3)
-    // [id, setId] = useState(1)
 
+    const url = "https://jsonplaceholder.typicode.com/posts";
 
-    const projects = dogs.map(dog => 
-        <li 
-            key = {dog.id}> 
-            {dog.name}
-        </li>
-        );
-
+    let count = 0;
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch(url);
+            const result = await response.json();
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
     return (
-        <header>
-            <ul>{projects}</ul>
-            
-        </header>
-    );
+        <span className="data-container">
+          <ul>
+            {data &&
+              data.map(item => (
+                <li key={item.id}>{item.name}</li>
+              ))}
+          </ul>
+        </span>
+      );
+
 }
 
 export default PastProjects;

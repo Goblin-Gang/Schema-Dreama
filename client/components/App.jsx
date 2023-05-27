@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import PastProjects from './PastProjects.jsx';
+import InputButton from './InputButton.jsx';
 
 function App() {
   //State for Key-Value Pairs
@@ -11,7 +12,7 @@ function App() {
   return (
     <div>
       <h1>Schema Dreama</h1>
-      <div>InputButton</div>
+      <span><InputButton /></span>
       <div> <PastProjects /> </div>
       <div>SchemaMaker</div>
     </div>
