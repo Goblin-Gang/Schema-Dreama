@@ -4,7 +4,7 @@ import SchemaMaker from './SchemaMaker.jsx';
 function App() {
   //State for Key-Value Pairs
   const [kvpArr, setKvp] = useState([
-    { name: '', type: 'Number', require: false },
+    { name: 'GoblinGang', type:'Number', require:false},
   ]);
   //State for Past Projects
 
@@ -27,12 +27,12 @@ function App() {
 
   schemaFunc.saveSchema = () => {
     fetch('/', {
-      method: "PATCH",
+      method: "POST",
       headers: {
         'Access-Control-Allow-Origin': 'http://localhost:3000/',
          'Content-type': 'application/json; charset=UTF-8',
       },
-      body: JSON.stringify({ id: '6472390fdbeb9b56b2f98835', form: JSON.stringify(kvpArr) }),
+      body: JSON.stringify({  name: JSON.stringify(kvpArr) }),
       mode: 'cors'
 
     })
