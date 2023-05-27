@@ -39,10 +39,6 @@ function App() {
       <div>InputButton</div>
       <div>PastProjects</div>
       <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
-      {/* <button onClick={schemaFunc.saveSchema}>
-        {' '}
-        ATTEMPT TO CONNECT TO BACKEND
-      </button> */}
     </div>
   );
 }
