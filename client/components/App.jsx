@@ -10,14 +10,22 @@ function App() {
 
   //functions to drill down
 
+  const schemaFunc = {};
   // updateKvpSchema actually changes the state each time, and then all the other f(n)s invoke it.
-  const updateKvpSchema = (rowNum, changeObj) => {
+  schemaFunc.updateKvpSchema = (rowNum, changeObj) => {
     const newState = structuredClone(kvpArr);
     Object.assign(newState[rowNum], changeObj);
     setKvp(newState);
   };
 
-  const saveSchema = () => {
+
+  schemaFunc.addRow = () => {
+    const newState = structuredClone(kvpArr);
+    newState.push({ name: '', type: 'string', require: false });
+    setKvp(newState);
+  };
+
+  schemaFunc.saveSchema = () => {
     fetch('/', {
       method: "POST",
       headers: {
@@ -26,6 +34,7 @@ function App() {
       },
       body: JSON.stringify({  name: JSON.stringify(kvpArr) }),
       mode: 'cors'
+
     })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
@@ -36,8 +45,7 @@ function App() {
       <h1>Schema Dreama</h1>
       <div>InputButton</div>
       <div>PastProjects</div>
-      <SchemaMaker kvpArr={kvpArr} updateKvpSchema={updateKvpSchema} />
-      <button onClick={saveSchema}> ATTEMPT TO CONNECT TO BACKEND</button>
+      <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
     </div>
   );
 }
