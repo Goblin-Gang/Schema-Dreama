@@ -42,7 +42,7 @@ formController.createDocument = async (req, res, next) => {
     next();
   } catch (error) {
     next({
-      log: 'error in the updateDocument middleware controller',
+      log: 'error in the createDocument middleware controller',
       err: error,
     });
   }
@@ -55,20 +55,17 @@ formController.deleteDocument = async (req, res, next) => {
 
   console.log('delete ID', id);
 
-  const myQuery = { id: id };
+  const myQuery = { _id: id };
   console.log('delete query', myQuery);
 
   try {
     // query db and deleteOne document
-    await Form.deleteOne(myQuery, function (err, obj) {
-      if (err) throw err;
-      console.log(obj.result.n + 'schema deleted');
-      db.close();
-    });
+    await Form.deleteOne(myQuery);
+
     next();
   } catch (error) {
     next({
-      log: 'error in the updateDocument middleware controller',
+      log: 'error in the deleteDocument middleware controller',
       err: error,
     });
   }
@@ -99,6 +96,10 @@ formController.getOneDocument = async (req, res, next) => {
   const { id } = req.params;
 
   try {
+
+    const result = await Form.findOne({ _id: id })
+    res.locals.retrievedDocument = result
+    next()
   } catch (error) {
     return next({
       log: 'error in the getOneDocument middleware controller',

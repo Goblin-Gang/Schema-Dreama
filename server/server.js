@@ -84,6 +84,11 @@ app.get('/getalldocuments', formController.getAllDocuments, (req, res) => {
     return res.status(200).json(res.locals.allDocuments)
 });
 
+//GET for selecting past document
+
+app.get('/:id', formController.getOneDocument, (req, res) => {
+    return res.status(200).json(res.locals.retrievedDocument)
+})
 
 
 //------------------ERROR HANDLERS------------------
