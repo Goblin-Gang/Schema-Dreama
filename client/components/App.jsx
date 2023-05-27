@@ -4,20 +4,27 @@ import SchemaMaker from './SchemaMaker.jsx';
 function App() {
   //State for Key-Value Pairs
   const [kvpArr, setKvp] = useState([
-    { name: 'asdf', type: 'Number', require: false },
+    { name: '', type: 'Number', require: false },
   ]);
   //State for Past Projects
 
   //functions to drill down
 
+  const schemaFunc = {};
   // updateKvpSchema actually changes the state each time, and then all the other f(n)s invoke it.
-  const updateKvpSchema = (rowNum, changeObj) => {
+  schemaFunc.updateKvpSchema = (rowNum, changeObj) => {
     const newState = structuredClone(kvpArr);
     Object.assign(newState[rowNum], changeObj);
     setKvp(newState);
   };
 
-  const saveSchema = () => {
+  schemaFunc.addRow = () => {
+    const newState = structuredClone(kvpArr);
+    newState.push({ name: '', type: 'string', require: false });
+    setKvp(newState);
+  };
+
+  schemaFunc.saveSchema = () => {
     fetch('localhost:3000', {
       headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000/' },
       body: { id: 'HARD CODE ME HERE', form: JSON.stringify(kvpArr) },
@@ -31,8 +38,11 @@ function App() {
       <h1>Schema Dreama</h1>
       <div>InputButton</div>
       <div>PastProjects</div>
-      <SchemaMaker kvpArr={kvpArr} updateKvpSchema={updateKvpSchema} />
-      <button onClick={saveSchema}> ATTEMPT TO CONNECT TO BACKEND</button>
+      <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
+      {/* <button onClick={schemaFunc.saveSchema}>
+        {' '}
+        ATTEMPT TO CONNECT TO BACKEND
+      </button> */}
     </div>
   );
 }
