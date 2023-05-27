@@ -1,8 +1,11 @@
 import React, { Component, useState } from 'react';
+import SchemaMaker from './SchemaMaker.jsx';
 
 function App() {
   //State for Key-Value Pairs
-  const [kvpArr, setKvp] = useState([{ name: '', value: 'String' }]);
+  const [kvpArr, setKvp] = useState([
+    { name: 'asdf', type: 'Number', require: false },
+  ]);
   //State for Past Projects
 
   //functions to drill down
@@ -12,7 +15,7 @@ function App() {
       <h1>Schema Dreama</h1>
       <div>InputButton</div>
       <div>PastProjects</div>
-      <div>SchemaMaker</div>
+      <SchemaMaker kvpArr={kvpArr} />
     </div>
   );
 }
