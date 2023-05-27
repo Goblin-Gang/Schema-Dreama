@@ -22,6 +22,8 @@ app.listen(PORT, () => {
 
 //--------------STANDARD MIDDLEWARE (JSON, FORM PARSER, CORS)----------------//
 
+app.use(cors())
+
 app.use(express.static(path.resolve(__dirname, './client')))
 
 app.use(express.json())
@@ -32,7 +34,7 @@ app.use(express.urlencoded())
 
 //invoke form parser
 
-app.use(cors())
+ 
 //invoke cors 
 
 
@@ -66,17 +68,6 @@ app.delete('/', formController.deleteDocument, (req, res) => {
 app.patch('/', formController.updateDocument, (req, res) => {
     return res.status(200).json(res.locals.updatedDoc)
 })
-
-
-
-//GET for selecting past document
-
-// app.get('/:id', (req, res) => {
-//     return res.status(200)
-// })
-
-
-
 
 
 //GET to return all past documents
