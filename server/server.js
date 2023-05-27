@@ -22,6 +22,8 @@ app.listen(PORT, () => {
 
 //--------------STANDARD MIDDLEWARE (JSON, FORM PARSER, CORS)----------------//
 
+app.use(cors())
+
 app.use(express.static(path.resolve(__dirname, './client')))
 
 app.use(express.json())
@@ -32,7 +34,7 @@ app.use(express.urlencoded())
 
 //invoke form parser
 
-app.use(cors())
+ 
 //invoke cors 
 
 
