@@ -17,6 +17,8 @@ function App() {
     setKvp(newState);
   };
 
+  const saveSchema = async () => {};
+
   return (
     <div>
       <h1>Schema Dreama</h1>
