@@ -17,7 +17,14 @@ function App() {
     setKvp(newState);
   };
 
-  const saveSchema = async () => {};
+  const saveSchema = () => {
+    fetch('localhost:3000', {
+      headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000/' },
+      body: { id: 'HARD CODE ME HERE', form: JSON.stringify(kvpArr) },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -25,6 +32,7 @@ function App() {
       <div>InputButton</div>
       <div>PastProjects</div>
       <SchemaMaker kvpArr={kvpArr} updateKvpSchema={updateKvpSchema} />
+      <button onClick={saveSchema}> ATTEMPT TO CONNECT TO BACKEND</button>
     </div>
   );
 }
