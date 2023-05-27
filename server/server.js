@@ -68,17 +68,6 @@ app.patch('/', formController.updateDocument, (req, res) => {
 })
 
 
-
-//GET for selecting past document
-
-// app.get('/:id', (req, res) => {
-//     return res.status(200)
-// })
-
-
-
-
-
 //GET to return all past documents
 app.get('/getalldocuments', formController.getAllDocuments, (req, res) => {
     return res.status(200).json(res.locals.allDocuments)
