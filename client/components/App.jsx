@@ -10,12 +10,19 @@ function App() {
 
   //functions to drill down
 
+  // updateKvpSchema actually changes the state each time, and then all the other f(n)s invoke it.
+  const updateKvpSchema = (rowNum, changeObj) => {
+    const newState = structuredClone(kvpArr);
+    Object.assign(newState[rowNum], changeObj);
+    setKvp(newState);
+  };
+
   return (
     <div>
       <h1>Schema Dreama</h1>
       <div>InputButton</div>
       <div>PastProjects</div>
-      <SchemaMaker kvpArr={kvpArr} />
+      <SchemaMaker kvpArr={kvpArr} updateKvpSchema={updateKvpSchema} />
     </div>
   );
 }
