@@ -29,13 +29,15 @@ formController.updateDocument = async (req, res, next) => {
 
 //POST request to create the schema form
 formController.createDocument = async (req, res, next) => {
-  const {  id, form } = req.body;
+  // const {  id, form } = req.body;
+  const{  title, schemaSchema } = req.body
 
+  //const newDoc = new Form({title: name})
+  // const schemaSchema = "ddd";  
   
-
     try {
       console.log('in the try')
-        const document = await Form.create({id, form}) ;
+        const document = await Form.create({title, schemaSchema});
         console.log('in the callback')
         res.locals.id = document;
     
