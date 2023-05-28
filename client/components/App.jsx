@@ -48,7 +48,7 @@ function App() {
     <div>
       <h1>Schema Dreama</h1>
       <span><InputButton /></span>
-      <div> <PastProjects /> </div>
+      <div> Asdf<PastProjects /> </div>
       <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
     </div>
   );
