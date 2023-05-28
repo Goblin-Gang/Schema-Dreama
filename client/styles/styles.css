@@ -1,6 +1,41 @@
 .data-container {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
 
+#appBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#schemaMaker {
+  background-color: blanchedalmond;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5%;
+  padding-top: 2%;
+}
+
+#schemaExporters {
+  margin: 10px;
+  background-color: aquamarine;
+}
+
+pre {
+  background-color: darkslategray;
+  color: greenyellow;
+  padding: 15px;
+}
+
+.schemaRow {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: flex;
+  gap: 3%;
+  background-color: pink;
+  width: 80%;
+}

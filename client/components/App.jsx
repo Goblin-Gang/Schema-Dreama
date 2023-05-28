@@ -56,7 +56,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div id="appBox">
       <h1>Schema Dreama</h1>
       <span>
         <InputButton />
