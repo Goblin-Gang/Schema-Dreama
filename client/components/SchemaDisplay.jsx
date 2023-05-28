@@ -10,13 +10,6 @@ const SchemaDisplay = ({ kvpArr }) => {
   }
   schemaArr.push('});');
   const schemaStr = schemaArr.join('\n');
-  const exschemaStr = `
-  const formSchema = \n new Schema ({
-
-    </div>
-    title:  {type: String, required: true},
-    schemaSchema: {type: String, required: true}
-  `;
   return (
     <pre>
       <code>{schemaStr}</code>
