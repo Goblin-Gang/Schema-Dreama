@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
-
+import './Login.css'; 
 
 const Login = (props) =>  {
     //using useState to reassign username and password state
@@ -34,7 +34,10 @@ const Login = (props) =>  {
     })
     const responseData =  await response.json()
     console.log('successful login', responseData)
-    props.handleLogin();
+    if (responseData.verified){
+      props.handleLogin();
+    }
+
     
   }
 
@@ -84,22 +87,21 @@ const Login = (props) =>  {
 
 
     return (
+      <div className='main'>
         <div className="login-wrapper">
-        <h1>Login</h1>
+        <h1 >Login</h1>
         {/* //render forms for username, password and submit button */}
     <form onSubmit = {handleSubmit}>
       <label>
-        <p>Username</p>
-        <input type="text" onChange={e => setUserName(e.target.value)}/>
+        <input className ="un"  type="text" align="center" placeholder="Username" onChange={e => setUserName(e.target.value)}/>
       </label>
       <label>
-        <p>Password</p>
-        <input type="password" onChange={e => setPassword(e.target.value)}/>
+        <input className ="un" type="password" align="center" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
       </label>
       <div>
-        <button type="submit">Submit</button>
+        <button className ="submit" type="submit">Submit</button>
 
-       <Link to = "/signup"> <button type="signup">Sign Up</button> </Link>
+       <Link to = "/signup"> <button className ="register" type="signup">Sign Up</button> </Link>
       </div>
       </form>
 
@@ -120,6 +122,7 @@ const Login = (props) =>  {
           </div>
 
         }
+      </div>
     </div>
     )
 }
