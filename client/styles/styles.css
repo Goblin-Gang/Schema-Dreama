@@ -1,7 +1,12 @@
+:root {
+  --primary-color: #ffebcd;
+  --secondary-color: #7fffd4;
+}
+
 .data-container {
-  background-color: #f0f0f0;
+  background-color: var(--primary-color);
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--secondary-color);
 }
 
 #appBox {
@@ -11,7 +16,7 @@
 }
 
 #schemaMaker {
-  background-color: blanchedalmond;
+  background-color: var(--primary-color);
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -22,7 +27,7 @@
 
 #schemaExporters {
   margin: 10px;
-  background-color: aquamarine;
+  background-color: var(--secondary-color);
 }
 
 pre {
@@ -36,6 +41,6 @@ pre {
   margin-bottom: 2px;
   display: flex;
   gap: 3%;
-  background-color: pink;
+  background-color: var(--secondary-color);
   width: 80%;
 }
