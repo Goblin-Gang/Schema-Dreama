@@ -57,25 +57,26 @@ function App() {
   //TODO: need a conditional to reroute to signup component 
     //if login is false, reroute to signup
       //if signup is true, reroute to login 
-
-
+        //if login is successful reroute to homepage 
+    
   return (
     <div>
 
       <Routes>
-        <Route exact path = "/" element ={<Login/>} />
+        <Route exact path="/" />
+          {/* {loggedIn ? < />: <SignUp/ >} */}
         <Route path = "/signup" element ={<SignUp/>} />
         <Route path = "/schemamaker" element ={<SignUp/>} />  
 
 
       </Routes>
 
-      {/* if logged in is successful, reroute to the rest of the components; otherwise, reroute to login page  */}
-      {/* {loggedIn ? 
+      {/* if logged in is successful, reroute to the rest of the components; otherwise, reroute to login page  */} 
+     {loggedIn ? 
       <><h1>Schema Dreama</h1><div>InputButton</div><div>PastProjects</div><SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} /></>
         :
-    <Login />} */}
-    
+        <Login handleLogin={()=> setLoggedIn(true)} />}
+        
     </div>
   );
 }
