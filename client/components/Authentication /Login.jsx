@@ -3,14 +3,41 @@ import { Link } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 
 
-const Login = ( ) =>  {
+const Login = (props) =>  {
     //using useState to reassign username and password state
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
+
     // [3] using useState to conditionally check if user has signed in
     // if user has signed in, google will return and store userObject inside state
     const [user, setUser] = useState({});
+
+
+    //function submit to get the inputs from username and password using fetch
+    const handleSubmit = async e => {
+      e.preventDefault();
+      const url = "http://localhost:3000/login"
+    const data = {
+      username,
+      password
+    }
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:3000/',
+         'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(data),
+      mode: 'cors'
+
+    })
+    const responseData =  await response.json()
+    console.log('successful login', responseData)
+    props.handleLogin();
+    
+  }
+
 
 
     // [2] Function to handle JWT ID token response from google
@@ -20,7 +47,9 @@ const Login = ( ) =>  {
       const userObject = jwt_decode(res.credential)
       console.log(userObject);
       setUser(userObject);
+  
       document.getElementById('googOAUTH').hidden = true;
+      props.handleLogin();
     };
 
     // [4] Signout button clears user object from state which "signs user out"
@@ -58,7 +87,7 @@ const Login = ( ) =>  {
         <div className="login-wrapper">
         <h1>Login</h1>
         {/* //render forms for username, password and submit button */}
-    <form>
+    <form onSubmit = {handleSubmit}>
       <label>
         <p>Username</p>
         <input type="text" onChange={e => setUserName(e.target.value)}/>
