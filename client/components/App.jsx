@@ -31,6 +31,20 @@ function App() {
     setKvp(newState);
   };
 
+  //TODO: FETCH ID TO DELETE ON LINE 33
+  schemaFunc.deleteSchema = () => {
+    fetch('/', {
+      method: 'DELETE',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:3000/',
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: null, //TODO: FETCH ID
+      mode: 'cors',
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   schemaFunc.addRow = () => {
     const newState = structuredClone(kvpArr);
     newState.push({ name: '', type: 'string', require: false });
@@ -57,7 +71,7 @@ function App() {
   //if login is successful reroute to homepage
 
   return (
-    <div>
+    <div id="appBox">
       <Routes>
         <Route exact path="/" />
         {/* {loggedIn ? < />: <SignUp/ >} */}
@@ -69,7 +83,9 @@ function App() {
       {loggedIn ? (
         <>
           <h1>Schema Dreama</h1>
-          <div>InputButton</div>
+          <span>
+            <InputButton />
+          </span>
           <div>PastProjects</div>
           <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
         </>
