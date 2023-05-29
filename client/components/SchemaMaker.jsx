@@ -1,5 +1,6 @@
 import React from 'react';
 import SchemaRow from './SchemaRow.jsx';
+import SchemaDisplay from './SchemaDisplay.jsx';
 
 const SchemaMaker = ({ kvpArr, schemaFunc }) => (
   <div id="schemaMaker">
@@ -13,7 +14,11 @@ const SchemaMaker = ({ kvpArr, schemaFunc }) => (
       />
     ))}
     <button onClick={schemaFunc.addRow}>+</button>
-    <button onClick={schemaFunc.saveSchema}>SAVE</button>
+    <div id="schemaExporters">
+      <button onClick={schemaFunc.saveSchema}>SAVE</button>
+      <button onClick={schemaFunc.deleteSchema}>DELETE</button>
+    </div>
+    <SchemaDisplay kvpArr={kvpArr} />
   </div>
 );
 

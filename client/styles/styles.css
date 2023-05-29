@@ -1,5 +1,46 @@
+:root {
+  --primary-color: #ffebcd;
+  --secondary-color: #7fffd4;
+}
+
 .data-container {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
+  background-color: var(--primary-color);
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+}
+
+#appBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#schemaMaker {
+  background-color: var(--primary-color);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5%;
+  padding-top: 2%;
+}
+
+#schemaExporters {
+  margin: 10px;
+  background-color: var(--secondary-color);
+}
+
+pre {
+  background-color: darkslategray;
+  color: greenyellow;
+  padding: 15px;
+}
+
+.schemaRow {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: flex;
+  gap: 3%;
+  background-color: var(--secondary-color);
+  width: 80%;
+}
