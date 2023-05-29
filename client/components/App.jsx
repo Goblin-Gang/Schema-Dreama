@@ -65,6 +65,12 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  schemaFunc.clearSchema = () => {
+    setKvp([
+      { name: 'Write something', type: 'Number', require: false },
+    ])
+  }
+
   //TODO: need a conditional to reroute to signup component
   //if login is false, reroute to signup
   //if signup is true, reroute to login
@@ -84,7 +90,7 @@ function App() {
         <>
           <h1>Schema Dreama</h1>
           <span>
-            <InputButton />
+            <InputButton handleClick={schemaFunc} />
           </span>
           <div>PastProjects</div>
           <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
