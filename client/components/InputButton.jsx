@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function InputButton(){
+function InputButton(props){
   
     return (
         <div>
@@ -8,7 +8,7 @@ function InputButton(){
             <input type="text" placeholder = "New Schema Name"/>
             </div>
             <div>
-            <button type="reset">Create Schema</button >
+            <button type="reset" onClick = {props.handleClick.clearSchema}>Create Schema</button >
             </div>
         </div>
         
