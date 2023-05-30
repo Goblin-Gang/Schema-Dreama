@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 import PastProjects from './PastProjects.jsx';
 import InputButton from './InputButton.jsx';
@@ -12,6 +12,11 @@ function App() {
   const [kvpArr, setKvp] = useState([
     { name: 'GoblinGang', type: 'Number', require: false },
   ]);
+  const [currentDocument, setCurrentDocument] = useState({
+    title: 'temp',
+    schemaSchema: 'temp',
+    _id: 'temp'
+  })
 
   //state for login
   const [loggedIn, setLoggedIn] = useState(false);
@@ -33,6 +38,11 @@ function App() {
 
   const schemaFunc = {};
   // updateKvpSchema actually changes the state each time, and then all the other f(n)s invoke it.
+  schemaFunc.addName = function (input) {
+    setCurrentDocument(prev => {
+      return {...prev, title: input}
+    })
+  }
   schemaFunc.updateKvpSchema = (rowNum, changeObj) => {
     const newState = structuredClone(kvpArr);
     Object.assign(newState[rowNum], changeObj);
@@ -47,10 +57,22 @@ function App() {
         'Access-Control-Allow-Origin': 'http://localhost:3000/',
         'Content-type': 'application/json; charset=UTF-8',
       },
-      body: null, //TODO: FETCH ID
+      body: JSON.stringify(currentDocument),
       mode: 'cors',
     })
-      .then((res) => console.log(res))
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if (data.deletedCount) {
+          console.log('data.deleted')
+          setCurrentDocument({
+            title: 'temp',
+            schemaSchema: 'temp',
+            _id: 'temp'
+          })
+          schemaFunc.clearSchema()
+        }
+      })
       .catch((err) => console.log(err));
   };
   schemaFunc.addRow = () => {
@@ -66,10 +88,15 @@ function App() {
         'Access-Control-Allow-Origin': 'http://localhost:3000/',
         'Content-type': 'application/json; charset=UTF-8',
       },
-      body: JSON.stringify({ name: JSON.stringify(kvpArr) }),
+      body: JSON.stringify({ title: currentDocument.title, schemaSchema: JSON.stringify(kvpArr),  _id: currentDocument._id}),
       mode: 'cors',
     })
-      .then((res) => console.log(res))
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setCurrentDocument(data, 'save')
+        setKvp(JSON.parse(data.schemaSchema))
+      })
       .catch((err) => console.log(err));
   };
 
@@ -79,7 +106,10 @@ function App() {
     ])
   }
 
-
+  useEffect(() => {
+    console.log(currentDocument, 'useEffect')
+    console.log(kvpArr, 'kvp')
+}, [currentDocument, kvpArr])
 
   return (
     <div id="appBox">
@@ -97,10 +127,10 @@ function App() {
           </div>
         
           <span>
-            <InputButton handleClick={schemaFunc} />
+            <InputButton schemaFunc={schemaFunc} />
           </span>
           <div>PastProjects</div>
-          <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
+            <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} currentDocument={currentDocument} />
         </>
       ) : (
         <>
