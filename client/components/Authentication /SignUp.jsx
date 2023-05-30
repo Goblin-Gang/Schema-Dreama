@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from "react-router-dom";
-import './SignUp.css'; 
+import './Login.css'; 
 
 const SignUp = (props) =>  {
   const [username, setUserName] = useState();
@@ -44,22 +44,25 @@ const SignUp = (props) =>  {
 
 
     return (
-        <div className="Signup-wrapper">
-        <h1>Create a New Account</h1>
+      <div>
+      <h1> SCHEAMA DREAMA </h1>
+        <div className="main">
+        <h2 id='registerh'>SIGN UP</h2>
         {/* //render forms for username, password and submit button */}
     <form onSubmit = {handleSubmit}>
       <label>
-        <p>Username</p>
-        <input type="text" onChange={e => setUserName(e.target.value)}/>
+
+        <input className ="un" type="text" align="center" placeholder="Username" onChange={e => setUserName(e.target.value)}/>
       </label>
       <label>
-        <p>Password</p>
-        <input type="password" onChange={e => setPassword(e.target.value)}/>
+  
+        <input className ="un" type="password" align="center" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
       </label>
       <div>
-        <button type="Create Account">Submit</button>
+        <button className ="register" type="Create Account">Submit</button>
       </div>
     </form>
+    </div>
     </div>
     )
 }
