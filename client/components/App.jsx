@@ -83,7 +83,7 @@ function App() {
         <>
           <h1>Schema Dreama</h1>
           <span>
-            <InputButton />
+            {/* <InputButton /> */}
           </span>
           <div> <PastProjects  updateState={setKvp} /> </div>
           <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
@@ -92,7 +92,6 @@ function App() {
         <Login handleLogin={() => setLoggedIn(true)} />
       )}
     </div>
-    </>
   );
 }
 
