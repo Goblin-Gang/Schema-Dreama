@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+@import  url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Righteous&display=swap');
 
 
-
-h1{
+h2{
     font-family: 'Nunito', sans-serif;
     text-align: center;
     letter-spacing: .2rem;
@@ -10,13 +9,23 @@ h1{
     font-weight: bold;
 }
 
-
+h1 {
+    color: #034053;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: .2rem;
+    font-family: 'Righteous', cursive;
+    font-size: 65px;
+    letter-spacing: .12rem;
+    line-height: 1.2em;
+    font-weight: 500;
+  }
 
 .main {
     background-color:  #ffebcd;
     width: 400px;
     height: 400px;
-    margin: 7em auto;
+    margin: 4em auto;
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
@@ -25,6 +34,15 @@ body {
     background-color: #e5f0ec;  
 }
 
+
+#registerh {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    letter-spacing: .2rem;
+    padding-top: 40px; 
+    font-weight: bold;
+    font-size: 5;
+}
 
 .un {
     width: 76%;

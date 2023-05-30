@@ -1,18 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+
+
 :root {
   --primary-color: #ffebcd;
-  --secondary-color: #7fffd4;
+  --secondary-color:  #76eec2;  
+
+}
+
+body{
+  font-family: 'Nunito', sans-serif;
 }
 
 .data-container {
   background-color: var(--primary-color);
   padding: 10px;
   border: 1px solid var(--secondary-color);
+
 }
 
 #appBox {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 #schemaMaker {
@@ -23,6 +34,10 @@
   align-items: flex-start;
   padding: 5%;
   padding-top: 2%;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  border-radius: 1.5em;
+
 }
 
 #schemaExporters {
@@ -43,6 +58,7 @@ pre {
   gap: 3%;
   background-color: var(--secondary-color);
   width: 80%;
+  font-family: 'Nunito', sans-serif;
 }
 
 
@@ -50,4 +66,17 @@ pre {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  font-family: 'Nunito', sans-serif;
+}
+
+
+button{
+  font-family: 'Nunito', sans-serif;
+  border-radius: .4em;
+
+
+}
+
+input{
+  font-family: 'Nunito', sans-serif;
 }

@@ -120,7 +120,7 @@ function App() {
           <div>
             <img className="menu-bg" src={user.picture}></img>
 
-            <button onClick={() => setLoggedIn(false)}>Log Out</button>
+            <button className = "button" onClick={() => setLoggedIn(false)}>Log Out</button>
 
             <h3>{user.name}</h3>
 

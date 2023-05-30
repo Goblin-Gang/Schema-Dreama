@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import './Login.css'; 
 import SignUp from './SignUp.jsx';
 
+
 const Login = (props) =>  {
     //using useState to reassign username and password state
     const [username, setUserName] = useState();
@@ -95,9 +96,11 @@ const Login = (props) =>  {
 
 
     return (
+      <div>
+      <h1> SCHEAMA DREAMA </h1>
       <div className='main'>
         <div className="login-wrapper">
-        <h1 >Login</h1>
+        <h2 >LOGIN</h2>
         {/* //render forms for username, password and submit button */}
     <form onSubmit = {handleSubmit}>
       <label>
@@ -119,6 +122,7 @@ const Login = (props) =>  {
          
       </div>
     </div>
+          </div>
     )
 }
 
