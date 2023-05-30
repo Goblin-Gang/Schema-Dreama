@@ -1,7 +1,5 @@
 import React, { Component, useState } from 'react';
-
 import PastProjects from './PastProjects.jsx';
-import InputButton from './InputButton.jsx';
 import SchemaMaker from './SchemaMaker.jsx';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Authentication /Login.jsx';
@@ -71,6 +69,7 @@ function App() {
   //if login is successful reroute to homepage
 
   return (
+
     <div id="appBox">
       <Routes>
         <Route exact path="/" />
@@ -84,12 +83,12 @@ function App() {
         <>
           <h1>Schema Dreama</h1>
           <span>
-            <InputButton />
+            {/* <InputButton /> */}
           </span>
-          <div>PastProjects</div>
+          <div> <PastProjects  updateState={setKvp} /> </div>
           <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
         </>
-      ) : (
+      )  : (
         <Login handleLogin={() => setLoggedIn(true)} />
       )}
     </div>
