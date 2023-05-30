@@ -7,6 +7,7 @@ const formController = {};
 //PATCH request to update the schema form
 formController.updateDocument = async (req, res, next) => {
   const { id, form } = req.body;
+  console.log(req)
   try {
     console.log('req', id, form);
     const filter = { _id: id };
@@ -30,6 +31,7 @@ formController.updateDocument = async (req, res, next) => {
 //POST request to create the schema form
 formController.createDocument = async (req, res, next) => {
   // const {  id, form } = req.body;
+  console.log(req.body)
   const{  title, schemaSchema } = req.body
 
   //const newDoc = new Form({title: name})
@@ -39,7 +41,8 @@ formController.createDocument = async (req, res, next) => {
       console.log('in the try')
         const document = await Form.create({title, schemaSchema});
         console.log('in the callback')
-        res.locals.id = document;
+      res.locals.newDocument = document;
+      console.log(res.locals.newDocument, 'res.locals')
     
     next();
   } catch (error) {
@@ -53,16 +56,18 @@ formController.createDocument = async (req, res, next) => {
 //DElETE request to delete the schema form
 formController.deleteDocument = async (req, res, next) => {
   // get id from body
-  const { id } = req.body;
+  console.log('delete', req.body)
+  const { _id } = req.body;
 
-  console.log('delete ID', id);
+  console.log('delete ID', _id);
 
-  const myQuery = { _id: id };
+  const myQuery = { _id: _id };
   console.log('delete query', myQuery);
 
   try {
     // query db and deleteOne document
-    await Form.deleteOne(myQuery);
+    const result = await Form.deleteOne(myQuery);
+    res.locals.result = result
 
     next();
   } catch (error) {
