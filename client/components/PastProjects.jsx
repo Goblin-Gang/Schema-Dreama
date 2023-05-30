@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 function PastProjects(props){
   
   const [data, setData] = useState([]);
- 
+  
     const url = "/getalldocuments";
     const tempData = [
       {
@@ -47,39 +47,32 @@ function PastProjects(props){
      
     </li>
   ));
-
-  useEffect(() => {
-    setData(tempData) 
-  },[])
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       const controller = new AbortController();
-    //       try {
-    //         const response = await fetch(url, {
-    //           method: "GET",
-    //           headers: {
-    //             'Access-Control-Allow-Origin': 'http://localhost:3000/',
-    //              'Content-type': 'application/json; charset=UTF-8',
-    //           },
-    //           signal: controller.signal,
-    //           mode: 'cors'
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch(url, {
+              method: "GET",
+              headers: {
+                'Access-Control-Allow-Origin': 'http://localhost:3000/',
+                 'Content-type': 'application/json; charset=UTF-8',
+              },
+              mode: 'cors'
         
-    //         });
-    //         const result = await response.json();
-    //         console.log(result);
-    //         setData(result);
-    //       } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //       }
-    //       return () => controller.abort();
-    //     };
+            });
+            const result = await response.json();
+            console.log(result);
+            setData(result);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
     
-    //     fetchData();
-    //   }, []);
+        fetchData();
+      }, []);
     return ( <>
     <h2>Saved Schemas</h2>
     <div style={styles}>
-        
+         
         <span className="data-container" >
           <ul className="list">
             {dataElements}

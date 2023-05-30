@@ -13,6 +13,8 @@ const cors = require('cors')
 //require cors
 const formController = require('./controllers/formController')
 //require in the controllers
+const userController = require('./controllers/userController')
+//require in the userControllers
 const PORT = 3000;
 //listen-connect to server
 app.listen(PORT, () => {
@@ -81,6 +83,16 @@ app.get('/:id', formController.getOneDocument, (req, res) => {
     return res.status(200).json(res.locals.retrievedDocument)
 })
 
+app.post('/login', userController.verifyLogin, (req, res) => {
+    return res.status(200).json(res.locals)
+})
+
+app.post('/signup', userController.signUp, (req, res) => {
+
+
+    return res.status(200).json(`${res.locals.user.username}'s profile has been successfully created`)
+
+})
 
 //------------------ERROR HANDLERS------------------
 
