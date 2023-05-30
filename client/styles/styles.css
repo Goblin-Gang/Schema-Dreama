@@ -46,8 +46,15 @@ pre {
 }
 
 
-.menu-bg {
+.profile-pic {
   width: 45px;
   height: 45px;
   border-radius: 50%;
 }
+
+.profile-box {
+  display: flex;
+  flex-direction: row;
+}
+
+
