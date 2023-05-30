@@ -62,7 +62,7 @@ mongoose.connect(MONGO_URI)
 
 //POST for create document
 app.post('/', formController.createDocument, (req, res) => {
-    return res.status(200).send(res.locals.id)
+    return res.status(200).json(res.locals.newDocument)
 })
 
 //DELETE for delete document
