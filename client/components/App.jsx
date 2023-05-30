@@ -105,7 +105,7 @@ function App() {
       ) : (
         <>
 
-        <Login handleLogin={() => setLoggedIn(true)} />
+        <Login handleLogin={() => setLoggedIn(true)} userObject={userObject}/>
         </>
       )}  />
         {/* {loggedIn ? < />: <SignUp/ >} */}
