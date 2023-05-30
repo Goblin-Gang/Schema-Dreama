@@ -36,6 +36,11 @@ function App() {
     return setUser(userObject)
   }
 
+  const handleLogOut = () => {
+    setUser({})
+    setLoggedIn(false)
+  }
+
   const schemaFunc = {};
   // updateKvpSchema actually changes the state each time, and then all the other f(n)s invoke it.
   schemaFunc.addName = function (input) {
@@ -116,15 +121,20 @@ function App() {
 <Routes>
         <Route exact path="/"  element= {loggedIn ? (
         <>
+
+      
           <h1>Schema Dreama</h1>
           <div>
             <img className="menu-bg" src={user.picture}></img>
 
-            <button onClick={() => setLoggedIn(false)}>Log Out</button>
+            <button className = "button" onClick={() => setLoggedIn(false)}>Log Out</button>
 
             <h3>{user.name}</h3>
 
           </div>
+
+          <button onClick={handleLogOut}>Log Out</button>
+          
         
           <span>
             <InputButton schemaFunc={schemaFunc} />
