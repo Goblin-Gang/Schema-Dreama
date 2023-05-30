@@ -1,8 +1,7 @@
 import React, { Component, useState } from 'react';
-
 import PastProjects from './PastProjects.jsx';
-import InputButton from './InputButton.jsx';
 import SchemaMaker from './SchemaMaker.jsx';
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
@@ -45,12 +44,14 @@ function App() {
   };
 
   return (
+    <>
     <div>
       <h1>Schema Dreama</h1>
       <span><InputButton /></span>
-      <div> <PastProjects /> </div>
+      <div><PastProjects updateState={setKvp}/> </div>
       <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
     </div>
+    </>
   );
 }
 
