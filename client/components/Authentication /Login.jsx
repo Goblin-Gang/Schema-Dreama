@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 import './Login.css'; 
+import SignUp from './SignUp.jsx';
 
 const Login = (props) =>  {
     //using useState to reassign username and password state
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
+    const navigate = useNavigate();
 
     // [3] using useState to conditionally check if user has signed in
     // if user has signed in, google will return and store userObject inside state
@@ -34,14 +36,21 @@ const Login = (props) =>  {
     })
     const responseData =  await response.json()
     console.log('successful login', responseData)
-    if (responseData.verified){
-      props.handleLogin();
-    }
 
     
+    if (responseData.verified){
+     props.handleLogin();
+    }else{
+      alert("Invalid login credentials, please sign up");
+    }
+
   }
 
+  const handleSignUp = () => {
+   
 
+    navigate('/signup');
+  };
 
     // [2] Function to handle JWT ID token response from google
     // decode token to access user information and setting user state set user login status
@@ -100,7 +109,7 @@ const Login = (props) =>  {
       <div>
         <button className ="submit" type="submit">Submit</button>
 
-       <Link to = "/signup"> <button className ="register" type="signup">Sign Up</button> </Link>
+      <button className ="register" type="signup" onClick ={handleSignUp}>Sign Up</button> 
       </div>
       </form>
 
