@@ -52,10 +52,22 @@ function App() {
         'Access-Control-Allow-Origin': 'http://localhost:3000/',
         'Content-type': 'application/json; charset=UTF-8',
       },
-      body: null, //TODO: FETCH ID
+      body: JSON.stringify(currentDocument),
       mode: 'cors',
     })
-      .then((res) => console.log(res))
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if (data.deletedCount) {
+          console.log('data.deleted')
+          setCurrentDocument({
+            title: 'temp',
+            schemaSchema: 'temp',
+            _id: 'temp'
+          })
+          schemaFunc.clearSchema()
+        }
+      })
       .catch((err) => console.log(err));
   };
   schemaFunc.addRow = () => {

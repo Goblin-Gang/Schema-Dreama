@@ -56,16 +56,18 @@ formController.createDocument = async (req, res, next) => {
 //DElETE request to delete the schema form
 formController.deleteDocument = async (req, res, next) => {
   // get id from body
-  const { id } = req.body;
+  console.log('delete', req.body)
+  const { _id } = req.body;
 
-  console.log('delete ID', id);
+  console.log('delete ID', _id);
 
-  const myQuery = { _id: id };
+  const myQuery = { _id: _id };
   console.log('delete query', myQuery);
 
   try {
     // query db and deleteOne document
-    await Form.deleteOne(myQuery);
+    const result = await Form.deleteOne(myQuery);
+    res.locals.result = result
 
     next();
   } catch (error) {

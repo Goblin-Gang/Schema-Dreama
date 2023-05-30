@@ -67,7 +67,7 @@ app.post('/', formController.createDocument, (req, res) => {
 
 //DELETE for delete document
 app.delete('/', formController.deleteDocument, (req, res) => {
-    return res.status(200).send('ahhh my legs')
+    return res.status(200).json(res.locals.result)
 })
 
 
