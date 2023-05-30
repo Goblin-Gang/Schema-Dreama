@@ -18,7 +18,7 @@ const SchemaMaker = ({ kvpArr, schemaFunc, schemaName }) => (
       <button onClick={schemaFunc.saveSchema}>SAVE</button>
       <button onClick={schemaFunc.deleteSchema}>DELETE</button>
     </div>
-    <SchemaDisplay kvpArr={kvpArr} />
+    <SchemaDisplay schemaName={schemaName} kvpArr={kvpArr} />
   </div>
 );
 

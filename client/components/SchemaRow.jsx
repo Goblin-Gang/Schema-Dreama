@@ -19,11 +19,14 @@ const SchemaRow = ({ schemaObj, rowNum, updateKvpSchema }) => (
         <option value="boolean">Boolean</option>
       </select>
     </div>
-    <input
-      type="checkbox"
-      checked={schemaObj.require}
-      onChange={(e) => updateKvpSchema(rowNum, { require: e.target.checked })}
-    ></input>
+    <div>
+      Required:
+      <input
+        type="checkbox"
+        checked={schemaObj.require}
+        onChange={(e) => updateKvpSchema(rowNum, { require: e.target.checked })}
+      ></input>
+    </div>
   </div>
 );
 
