@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
+import './Login.css'; 
+import SignUp from './SignUp.jsx';
 
 
 const Login = (props) =>  {
@@ -8,10 +10,11 @@ const Login = (props) =>  {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
+    const navigate = useNavigate();
 
     // [3] using useState to conditionally check if user has signed in
     // if user has signed in, google will return and store userObject inside state
-    const [user, setUser] = useState({});
+  
 
 
     //function submit to get the inputs from username and password using fetch
@@ -34,11 +37,21 @@ const Login = (props) =>  {
     })
     const responseData =  await response.json()
     console.log('successful login', responseData)
-    props.handleLogin();
+
     
+    if (responseData.verified){
+     props.handleLogin();
+    }else{
+      alert("Invalid login credentials, please sign up");
+    }
+
   }
 
+  const handleSignUp = () => {
+   
 
+    navigate('/signup');
+  };
 
     // [2] Function to handle JWT ID token response from google
     // decode token to access user information and setting user state set user login status
@@ -46,17 +59,19 @@ const Login = (props) =>  {
       // console.log("Encoded JWT ID token" + res.credential);
       const userObject = jwt_decode(res.credential)
       console.log(userObject);
-      setUser(userObject);
   
       document.getElementById('googOAUTH').hidden = true;
+
+      props.userObject(userObject)
+ 
       props.handleLogin();
     };
 
     // [4] Signout button clears user object from state which "signs user out"
-    function handleSignOut(e) {
-      setUser({});
-      document.getElementById('googOAUTH').hidden = false;
-    }
+    // function handleSignOut(e) {
+    //   setUser({});
+    //   document.getElementById('googOAUTH').hidden = false;
+    // }
 
 
     // [1] Intialize client and google button for Google
@@ -80,47 +95,34 @@ const Login = (props) =>  {
     }, []);
 
 
-
-
-
     return (
+      <div>
+      <h1> SCHEAMA DREAMA </h1>
+      <div className='main'>
         <div className="login-wrapper">
-        <h1>Login</h1>
+        <h2 >LOGIN</h2>
         {/* //render forms for username, password and submit button */}
     <form onSubmit = {handleSubmit}>
       <label>
-        <p>Username</p>
-        <input type="text" onChange={e => setUserName(e.target.value)}/>
+        <input className ="un"  type="text" align="center" placeholder="Username" onChange={e => setUserName(e.target.value)}/>
       </label>
       <label>
-        <p>Password</p>
-        <input type="password" onChange={e => setPassword(e.target.value)}/>
+        <input className ="un" type="password" align="center" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
       </label>
       <div>
-        <button type="submit">Submit</button>
+        <button className ="submit" type="submit">Submit</button>
 
-       <Link to = "/signup"> <button type="signup">Sign Up</button> </Link>
+      <button className ="register" type="signup" onClick ={handleSignUp}>Sign Up</button> 
       </div>
       </form>
-
-      {/* // checking if user object exist - if so hide google OAuth button */}
-      { Object.keys(user).length != 0 &&
-        <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-      }
 
      {/* // render the google OAuth login button  */}
       <div id='googOAUTH'>
       </div>
-      
-      {/* // rendering user profile pic and name for test */}
-      {user &&
-          <div>
-            <img src={user.picture}></img>
-            <h3>{user.name}</h3>
-          </div>
-
-        }
+         
+      </div>
     </div>
+          </div>
     )
 }
 

@@ -2,9 +2,13 @@ import React from 'react';
 import SchemaRow from './SchemaRow.jsx';
 import SchemaDisplay from './SchemaDisplay.jsx';
 
-const SchemaMaker = ({ kvpArr, schemaFunc }) => (
+const SchemaMaker = ({ kvpArr, schemaFunc, currentDocument }) => {
+  console.log(currentDocument.title, 'currentDocument')
+  const { title } = currentDocument
+  console.log(title, typeof title)
+  return (
   <div id="schemaMaker">
-    Schema
+    Schema - {title}
     {kvpArr.map((ele, index) => (
       <SchemaRow
         schemaObj={ele}
@@ -20,6 +24,7 @@ const SchemaMaker = ({ kvpArr, schemaFunc }) => (
     </div>
     <SchemaDisplay kvpArr={kvpArr} />
   </div>
-);
+  )
+};
 
 export default SchemaMaker;
