@@ -11,7 +11,7 @@ const Login = (props) =>  {
 
     // [3] using useState to conditionally check if user has signed in
     // if user has signed in, google will return and store userObject inside state
-    const [user, setUser] = useState({});
+  
 
 
     //function submit to get the inputs from username and password using fetch
@@ -49,17 +49,19 @@ const Login = (props) =>  {
       // console.log("Encoded JWT ID token" + res.credential);
       const userObject = jwt_decode(res.credential)
       console.log(userObject);
-      setUser(userObject);
   
       document.getElementById('googOAUTH').hidden = true;
+
+      props.userObject(userObject)
+ 
       props.handleLogin();
     };
 
     // [4] Signout button clears user object from state which "signs user out"
-    function handleSignOut(e) {
-      setUser({});
-      document.getElementById('googOAUTH').hidden = false;
-    }
+    // function handleSignOut(e) {
+    //   setUser({});
+    //   document.getElementById('googOAUTH').hidden = false;
+    // }
 
 
     // [1] Intialize client and google button for Google
@@ -83,9 +85,6 @@ const Login = (props) =>  {
     }, []);
 
 
-
-
-
     return (
       <div className='main'>
         <div className="login-wrapper">
@@ -105,23 +104,10 @@ const Login = (props) =>  {
       </div>
       </form>
 
-      {/* // checking if user object exist - if so hide google OAuth button */}
-      { Object.keys(user).length != 0 &&
-        <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-      }
-
      {/* // render the google OAuth login button  */}
       <div id='googOAUTH'>
       </div>
-      
-      {/* // rendering user profile pic and name for test */}
-      {user &&
-          <div>
-            <img src={user.picture}></img>
-            <h3>{user.name}</h3>
-          </div>
-
-        }
+         
       </div>
     </div>
     )

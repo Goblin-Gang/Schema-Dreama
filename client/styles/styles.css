@@ -44,3 +44,10 @@ pre {
   background-color: var(--secondary-color);
   width: 80%;
 }
+
+
+.menu-bg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
