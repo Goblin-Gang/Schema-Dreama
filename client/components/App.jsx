@@ -5,6 +5,7 @@ import SchemaMaker from './SchemaMaker.jsx';
 import { Router, Route, Redirect, Routes } from 'react-router-dom';
 import Login from './Authentication /Login.jsx';
 import SignUp from './Authentication /SignUp.jsx';
+import InputButton from './InputButton.jsx';
 
 function App() {
   //State for Key-Value Pairs
@@ -145,7 +146,11 @@ function App() {
                   {' '}
                   <PastProjects updateState={setKvp} />{' '}
                 </div>
-                <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
+                <SchemaMaker
+                  kvpArr={kvpArr}
+                  schemaFunc={schemaFunc}
+                  currentDocument={currentDocument}
+                />
               </>
             ) : (
               <>
