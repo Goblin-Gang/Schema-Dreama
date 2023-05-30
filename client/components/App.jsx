@@ -38,6 +38,11 @@ function App() {
 
   const schemaFunc = {};
   // updateKvpSchema actually changes the state each time, and then all the other f(n)s invoke it.
+  schemaFunc.addName = function (input) {
+    setCurrentDocument(prev => {
+      return {...prev, title: input}
+    })
+  }
   schemaFunc.updateKvpSchema = (rowNum, changeObj) => {
     const newState = structuredClone(kvpArr);
     Object.assign(newState[rowNum], changeObj);
@@ -122,10 +127,10 @@ function App() {
           </div>
         
           <span>
-            <InputButton handleClick={schemaFunc} />
+            <InputButton schemaFunc={schemaFunc} />
           </span>
           <div>PastProjects</div>
-          <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} />
+            <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} currentDocument={currentDocument} />
         </>
       ) : (
         <>
