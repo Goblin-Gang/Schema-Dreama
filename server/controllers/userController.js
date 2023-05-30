@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const User = require('../model/userModel')
 //change this to User when User Model is completed
-//selet all User methods and change to User
+//select all User methods and change to User
 
 const userController = {}
 

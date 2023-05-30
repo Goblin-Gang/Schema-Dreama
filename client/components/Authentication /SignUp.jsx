@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from "react-router-dom"
-
+import { Navigate } from "react-router-dom";
+import './SignUp.css'; 
 
 const SignUp = (props) =>  {
   const [username, setUserName] = useState();
