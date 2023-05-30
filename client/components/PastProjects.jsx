@@ -41,7 +41,7 @@ function PastProjects(props){
   //3. display the SchemaMaker
   const dataElements = data.map(item => (
     <li key={item._id}
-    onClick = {()=> props.updateState(item)}
+    onClick = {()=> props.updateState(JSON.parse(item.schemaSchema))}
     > 
         {item.title}
      
