@@ -24,20 +24,23 @@ app.listen(PORT, () => {
 
 //--------------STANDARD MIDDLEWARE (JSON, FORM PARSER, CORS)----------------//
 
+//invoke cors 
+
 app.use(cors())
 
 app.use(express.static(path.resolve(__dirname, './client')))
 
-app.use(express.json())
-
 //invoke use on app passing in express.JSON
 
-app.use(express.urlencoded())
+app.use(express.json())
+
 
 //invoke form parser
 
+app.use(express.urlencoded())
+
+
  
-//invoke cors 
 
 
 // app.use('/', (req, res) => {
@@ -52,13 +55,7 @@ const MONGO_URI = 'mongodb+srv://steve:6zJJuPADTTD1IjjE@cluster0.a0kwcdx.mongodb
 mongoose.connect(MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .then((err)=> console.log(err))
-//GET for static HTML
 
-// app.use(express.static(path.join(__dirname, '/dist')));
-
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'dist', 'bundle.js'));
-// });
 
 //POST for create document
 app.post('/', formController.createDocument, (req, res) => {
@@ -89,9 +86,13 @@ app.get('/:id', formController.getOneDocument, (req, res) => {
     return res.status(200).json(res.locals.retrievedDocument)
 })
 
+//POST for logging in
+
 app.post('/login', userController.verifyLogin, (req, res) => {
     return res.status(200).json(res.locals)
 })
+
+//POST for signing up
 
 app.post('/signup', userController.signUp, (req, res) => {
 
@@ -102,7 +103,6 @@ app.post('/signup', userController.signUp, (req, res) => {
 
 //------------------ERROR HANDLERS------------------
 
-//catch-all 
 
 //global
 app.use((err, req, res, next) => {
