@@ -4,7 +4,7 @@
 const express = require('express');
 //require in mongoose
 const mongoose = require('mongoose');
-//declare app with express invocation
+//declare app with express invocations
 const app = express();
 //declare path;
 const path = require('path');
