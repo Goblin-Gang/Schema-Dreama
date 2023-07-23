@@ -17,6 +17,10 @@ const userController = require('./controllers/userController')
 //require in the userControllers
 const PORT = 3000;
 //listen-connect to server
+
+require('dotenv').config();
+
+
 app.listen(PORT, () => {
     console.log(`Server listening on port: ${PORT}...`);
   });
@@ -51,8 +55,8 @@ app.use(express.urlencoded())
 //------------------SERVER REQUESTS------------------
 
 //connect to mongoDB
-const MONGO_URI = 'mongodb+srv://steve:6zJJuPADTTD1IjjE@cluster0.a0kwcdx.mongodb.net/';
-mongoose.connect(MONGO_URI)
+
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .then((err)=> console.log(err))
 
