@@ -40,9 +40,6 @@ app.use(express.urlencoded())
 //invoke cors 
 
 
-// app.use('/', (req, res) => {
-//     res.status(200).json('not working yet')
-// })
 
 
 //------------------SERVER REQUESTS------------------
@@ -54,11 +51,7 @@ mongoose.connect(MONGO_URI)
     .then((err)=> console.log(err))
 //GET for static HTML
 
-// app.use(express.static(path.join(__dirname, '/dist')));
 
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'dist', 'bundle.js'));
-// });
 
 //POST for create document
 app.post('/', formController.createDocument, (req, res) => {

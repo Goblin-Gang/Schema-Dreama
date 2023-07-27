@@ -1,11 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 
+.course-tile {
+  height: 400px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
 
+.courses {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.completion-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-left-links ul {
+  display: flex;
+}
+
+.nav-left-links a {
+  margin-right: 5px; /* Adjust this value to add the desired space */
+}
+
+.nav-right ul {
+  display: flex;
+}
+
+.nav-right a {
+  margin-left: 5px; /* Adjust this value to add the desired space */
+}
+
+
+
+
+.input-button {
+  align-items: center;
+}
 
 :root {
   --primary-color: #ffebcd;
   --secondary-color:  #76eec2;  
-
 }
 
 body{
