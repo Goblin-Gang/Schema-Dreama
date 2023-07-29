@@ -53,6 +53,12 @@
 .unitTiles {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.unitTiles div {
+  display: flex;
+  flex-direction: row;
 }
 
 .tileContainer {

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-export default function OV1 () {
+export default function UnitTiles({ unit }) {
   return (
     <>
       <div className="unitTiles">
         <div>
           <form>
-            <input type="checkbox" id="unit1" name="unit1" value="done" />
+            <input type="checkbox" id={`unit-${unit}`} name={`unit-${unit}`} value="done" />
           </form>
-          <p>What are Databases?</p>
+          <p>{unit}</p>
         </div>
         <button>Complete</button>
       </div>

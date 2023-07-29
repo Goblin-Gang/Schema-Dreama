@@ -1,25 +1,30 @@
 import React from 'react'
 import { Link, Outlet } from "react-router-dom";
 import TableOfContents from '../components/TableOfContents.jsx'
-import OV1 from '../components/Overview/OV1.jsx'
-import OV2 from '../components/Overview/OV2.jsx'
-import OV3 from '../components/Overview/OV3.jsx'
-import OV4 from '../components/Overview/OV4.jsx'
+import UnitTiles from '../components/UnitTiles.jsx';
 
-export default function Overview () {
+export default function Overview() {
+  const units = [
+    'What are Databases?',
+    'Types of Databases',
+    'What are Transactions?',
+    'Resources'
+  ];
+
   return (
     <>
-    <div id='overviewContainer'>
-      <div className='tocContainer'>
-        <TableOfContents/>
+      <div id='overviewContainer'>
+        <div className='tocContainer'>
+          <TableOfContents />
+        </div>
+        <div className='tileContainer'>
+          {/* Map over the units array and pass each unit to the UnitTiles component */}
+          {units.map(unit => (
+            <UnitTiles key={unit} unit={unit} />
+          ))}
+        </div>
       </div>
-      <div className='tileContainer'>
-        <OV1/>
-        <OV2/>
-        <OV3/>
-        <OV4/>
-      </div>
-    </div>
     </>
-  )
+  );
 }
+
