@@ -1,11 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
 
-import PastProjects from '../components/PastProjects.jsx';
-import InputButton from '../components/InputButton.jsx';
-import SchemaMaker from '../components/SchemaMaker.jsx';
+import PastProjects from '../components/SchemaModel/PastProjects.jsx';
+import InputButton from '../components/SchemaModel/InputButton.jsx';
+import SchemaMaker from '../components/SchemaModel/SchemaMaker.jsx';
 import { Router, Route, Redirect, Routes } from 'react-router-dom';
-import Login from '../components//Authentication /Login.jsx';
-import SignUp from '../components//Authentication /SignUp.jsx';
+
 
 function SchemaModel() {
   //State for Key-Value Pairs

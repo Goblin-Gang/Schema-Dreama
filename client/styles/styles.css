@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 
-.course-tile {
+.courseTile {
   height: 400px;
   width: 30%;
   display: flex;
@@ -13,7 +13,7 @@
   justify-content: space-between;
 }
 
-.completion-box {
+.completionBox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -25,23 +25,47 @@
   justify-content: space-between;
 }
 
-.nav-left-links ul {
+.navLeftLinks ul {
   display: flex;
 }
 
-.nav-left-links a {
+.navLeftLinks a {
   margin-right: 5px; /* Adjust this value to add the desired space */
 }
 
-.nav-right ul {
+.navRight ul {
   display: flex;
 }
 
-.nav-right a {
+.navRight a {
   margin-left: 5px; /* Adjust this value to add the desired space */
 }
 
+.tableOfConents {
+  display: flex;
+  flex-direction: column;
+}
 
+.tocContainer {
+  width: 20%;
+}
+
+.unitTiles {
+  display: flex;
+  flex-direction: row;
+}
+
+.tileContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+#overviewContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 
 .input-button {

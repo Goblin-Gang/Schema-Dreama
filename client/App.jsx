@@ -3,9 +3,11 @@ import { HashRouter, BrowserRouter, Router, Route, Redirect, Routes } from 'reac
 import Nav from './components/Nav.jsx';
 import Home from './pages/Home.jsx';
 import Overview from './pages/Overview.jsx'
-import PostgresSQL from './pages/PostgresSQL.jsx';
+import PostgreSQL from './pages/PostgreSQL.jsx';
 import NoSQL from './pages/NoSQL.jsx';
 import SchemaModel from './pages/SchemaModel.jsx';
+import Login from './components/Authentication/Login.jsx';
+import SignUp from './components/Authentication/SignUp.jsx'
 
 
 export default function App(){
@@ -14,9 +16,11 @@ export default function App(){
           <Route path="/" element={<Nav />}>
             <Route index element={<Home />} />
             <Route path="Overview" element={<Overview />} />
-            <Route path="PostgresSQL" element={<PostgresSQL />} />
+            <Route path="PostgreSQL" element={<PostgreSQL />} />
             <Route path="NoSQL" element={<NoSQL />} />
             <Route path="SchemaModel" element={<SchemaModel />} />
+            <Route path="Login" element={<Login />} />
+            <Route path="SignUp" element={<SignUp />} />
           </Route>
         </Routes>
     );

@@ -6,11 +6,11 @@ export default function Nav (){
         <>
             <div className="nav">
 
-              <div className="nav-left">
+              <div className="navLeft">
 
                 <h3>SchemaDreama</h3>
 
-                <nav className="nav-left-links">
+                <nav className="navLeftLinks">
                   <ul>
                       <a>
                           <Link to="/">Home</Link>
@@ -22,7 +22,7 @@ export default function Nav (){
                 </nav>
               </div>
 
-              <div className="nav-right">
+              <div className="navRight">
                 <ul>
                   <a>
                       <Link to="/login">Login</Link>

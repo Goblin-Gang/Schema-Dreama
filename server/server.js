@@ -1,4 +1,4 @@
-//------------------REQUIRES------------------
+//------------------REQUIRES------------------//
 
 //require in express
 const express = require('express');
@@ -49,6 +49,7 @@ const MONGO_URI = 'mongodb+srv://steve:6zJJuPADTTD1IjjE@cluster0.a0kwcdx.mongodb
 mongoose.connect(MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .then((err)=> console.log(err))
+
 //GET for static HTML
 
 

@@ -4,24 +4,25 @@ import { Link, Outlet } from "react-router-dom";
 export default function Home () {
   return (
     <>
-      <div className='home-container'>
+      <div className='homeContainer'>
           <h1>Welcome to SchemaDreama</h1>
       </div>
       
       <div className='courses'>
 
-        <div className='course-tile'>
+        <div className='courseTile'>
           <h3>Overview of SchemaDreama</h3>
 
           <div>
             <ul>
-              <li>Id ea laborum dolore pariatur proident minim voluptate est deserunt.</li>
-              <li>Enim ut enim officia ullamco sint ullamco eiusmod esse eiusmod nisi laboris ex tempor voluptate.</li>
-              <li>Pariatur culpa exercitation excepteur deserunt sint.</li>
+              <li>What are Databases?</li>
+              <li>Types of Databases</li>
+              <li>What are Transactions?</li>
+              <li>Resources</li>
             </ul>
           </div>
 
-          <div className='completion-box'>
+          <div className='completionBox'>
             <p>100% (5/5) Complete</p>
 
             <div>
@@ -34,22 +35,22 @@ export default function Home () {
           </div>
         </div>
 
-        <div className='course-tile'>
-          <h3>Unit 1: PostgresSQL</h3>
+        <div className='courseTile'>
+          <h3>Unit 1: PostgreSQL</h3>
 
           <div>
             <ul>
-              <li>Id ea laborum dolore pariatur proident minim voluptate est deserunt.</li>
-              <li>Enim ut enim officia ullamco sint ullamco eiusmod esse eiusmod nisi laboris ex tempor voluptate.</li>
-              <li>Pariatur culpa exercitation excepteur deserunt sint.</li>
+              <li>What is a PostgreSQL Database</li>
+              <li>Table Setup</li>
+              <li>CRUD Transactions</li>
             </ul>
           </div>
 
-          <div className='completion-box'>
+          <div className='completionBox'>
             <p>100% (5/5) Complete</p>
 
             <div>
-              <Link to="/PostgresSQL">
+              <Link to="/PostgreSQL">
                 <button type='button'>
                   Unit Complete
                 </button>
@@ -58,18 +59,18 @@ export default function Home () {
           </div>
         </div>
 
-        <div className='course-tile'>
+        <div className='courseTile'>
           <h3>Unit 2: NoSQL</h3>
 
           <div>
             <ul>
-              <li>Id ea laborum dolore pariatur proident minim voluptate est deserunt.</li>
-              <li>Enim ut enim officia ullamco sint ullamco eiusmod esse eiusmod nisi laboris ex tempor voluptate.</li>
-              <li>Pariatur culpa exercitation excepteur deserunt sint.</li>
+              <li>What is a NoSQLDatabase?</li>
+              <li>Schema Setup</li>
+              <li>CRUD Transactions</li>
             </ul>
           </div>
 
-          <div className='completion-box'>
+          <div className='completionBox'>
              <p>100% (5/5) Complete</p>
 
               <div>
