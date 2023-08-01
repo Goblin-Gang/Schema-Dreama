@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Nav (){
+
+
     return (
         <>
             <div className="nav">
@@ -28,7 +30,7 @@ export default function Nav (){
                       <Link to="/login">Login</Link>
                   </a>
                   <a>
-                      <Link to="/features">Sign Out</Link>
+                      <Link to="/">Sign Out</Link>
                   </a>
                 </ul>
               </div>

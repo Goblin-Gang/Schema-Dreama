@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-export default function UnitTiles({ unit }) {
+export default function UnitTiles ({ unit, link }) {
   return (
     <>
       <div className="unitTiles">
@@ -11,7 +11,13 @@ export default function UnitTiles({ unit }) {
           </form>
           <p>{unit}</p>
         </div>
-        <button>Complete</button>
+        <div>
+          <Link to={`${link}`}>
+            <button type="button">
+              Complete
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -1,8 +1,53 @@
 import React from 'react'
 import { Link, Outlet } from "react-router-dom";
+import CourseTitle from '../components/CourseTitle.jsx';
 
 export default function Home () {
 
+  const courses = {
+    overview: {
+      title: 'Overview of SchemaDreama',
+      linkz: '/Overview',
+      units:  {
+        'What are Databases?': '/OV1',
+        'Types of Databases': '/OV2',
+        'What are Transactions?': '/OV3',
+        'Resources': '/OV4'
+      },
+    },
+    postgresSQL: {
+      title: 'Unit 1: PostgreSQL',
+      linkz: '/PostgreSQL',
+      units:  {
+        'What is a PostgreSQL Database?': '/PSQL1',
+        'Table Setup': '/PSQL2',
+        'CRUD Transactions': '/PSQL3'
+      },
+    },
+    noSQL: {
+      title: 'Unit 2: NoSQL',
+      linkz: '/NoSQL',
+      units:  {
+        'What is a NoSQL Database?': '/NSQL1',
+        'Schema Setup': '/NSQL2',
+        'CRUD Transactions': '/NSQL3'
+      },
+
+    }
+  }
+
+  const courseDisplay = [];
+
+  for (let key in courses) {
+    courseDisplay.push(
+      <CourseTitle 
+        key={courses[key].title}
+        title={courses[key].title} 
+        link={courses[key].linkz} 
+        unitList={courses[key].units} 
+      />);
+  }
+  console.log(courseDisplay)
   
   return (
     <>
@@ -11,80 +56,7 @@ export default function Home () {
       </div>
       
       <div className='courses'>
-
-        <div className='courseTile'>
-          <h3>Overview of SchemaDreama</h3>
-
-          <div>
-            <ul>
-              <li>What are Databases?</li>
-              <li>Types of Databases</li>
-              <li>What are Transactions?</li>
-              <li>Resources</li>
-            </ul>
-          </div>
-
-          <div className='completionBox'>
-            <p>100% (5/5) Complete</p>
-
-            <div>
-              <Link to="/Overview">
-                <button type='button'>
-                  Unit Complete
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className='courseTile'>
-          <h3>Unit 1: PostgreSQL</h3>
-
-          <div>
-            <ul>
-              <li>What is a PostgreSQL Database</li>
-              <li>Table Setup</li>
-              <li>CRUD Transactions</li>
-            </ul>
-          </div>
-
-          <div className='completionBox'>
-            <p>100% (5/5) Complete</p>
-
-            <div>
-              <Link to="/PostgreSQL">
-                <button type='button'>
-                  Unit Complete
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className='courseTile'>
-          <h3>Unit 2: NoSQL</h3>
-
-          <div>
-            <ul>
-              <li>What is a NoSQLDatabase?</li>
-              <li>Schema Setup</li>
-              <li>CRUD Transactions</li>
-            </ul>
-          </div>
-
-          <div className='completionBox'>
-             <p>100% (5/5) Complete</p>
-
-              <div>
-              <Link to="/NoSQL">
-                <button type='button'>
-                  Unit Complete
-                </button>
-              </Link>
-              </div>
-            </div>
-        </div>
-
+        {courseDisplay}
       </div>
     </>
   )

@@ -14,6 +14,9 @@ const cors = require('cors')
 const formController = require('./controllers/formController')
 //require in the controllers
 const userController = require('./controllers/userController')
+
+const routesRouter = require('./routes/routes.js')
+
 //require in the userControllers
 const PORT = 3000;
 //listen-connect to server
@@ -51,6 +54,8 @@ mongoose.connect(MONGO_URI)
     .then((err)=> console.log(err))
 
 //GET for static HTML
+
+app.use('/api', routesRouter)
 
 
 
