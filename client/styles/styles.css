@@ -41,6 +41,16 @@
   margin-left: 5px; /* Adjust this value to add the desired space */
 }
 
+.footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+.footer a {
+  margin-left: 5px; /* Adjust this value to add the desired space */
+}
+
+
 .tableOfConents {
   display: flex;
   flex-direction: column;

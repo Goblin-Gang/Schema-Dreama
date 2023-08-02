@@ -1,5 +1,4 @@
 import React, { Component, useState, useEffect } from 'react';
-
 import PastProjects from '../components/SchemaModel/PastProjects.jsx';
 import InputButton from '../components/SchemaModel/InputButton.jsx';
 import SchemaMaker from '../components/SchemaModel/SchemaMaker.jsx';

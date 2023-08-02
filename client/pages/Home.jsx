@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link, Outlet } from "react-router-dom";
 import CourseTitle from '../components/CourseTitle.jsx';
+import Footer from '../components/Footer.jsx';
 
 export default function Home () {
 
@@ -47,7 +47,6 @@ export default function Home () {
         unitList={courses[key].units} 
       />);
   }
-  console.log(courseDisplay)
   
   return (
     <>
@@ -57,6 +56,10 @@ export default function Home () {
       
       <div className='courses'>
         {courseDisplay}
+      </div>
+
+      <div className='footer'>
+        <Footer/>
       </div>
     </>
   )

@@ -8,7 +8,8 @@ import NoSQL from './pages/NoSQL.jsx';
 import SchemaModel from './pages/SchemaModel.jsx';
 import Login from './components/Authentication/Login.jsx';
 import SignUp from './components/Authentication/SignUp.jsx'
-
+import Team from './pages/Team.jsx';
+import Contact from './pages/Contact.jsx';
 
 export default function App(){
     return (
@@ -21,6 +22,8 @@ export default function App(){
             <Route path="SchemaModel" element={<SchemaModel />} />
             <Route path="Login" element={<Login />} />
             <Route path="SignUp" element={<SignUp />} />
+            <Route path="Team" element={<Team />} />
+            <Route path="Contact" element={<Contact />} />
           </Route>
         </Routes>
     );
