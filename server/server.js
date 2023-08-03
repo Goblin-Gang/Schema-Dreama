@@ -27,6 +27,8 @@ app.listen(PORT, () => {
 
 //--------------STANDARD MIDDLEWARE (JSON, FORM PARSER, CORS)----------------//
 
+//invoke cors 
+
 app.use(cors())
 
 app.use(express.static(path.resolve(__dirname, './client')))
@@ -35,14 +37,9 @@ app.use(express.json())
 
 //invoke use on app passing in express.JSON
 
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true}))
 
 //invoke form parser
-
- 
-//invoke cors 
-
-
 
 
 //------------------SERVER REQUESTS------------------
@@ -93,8 +90,6 @@ app.post('/login', userController.verifyLogin, (req, res) => {
 })
 
 app.post('/signup', userController.signUp, (req, res) => {
-
-
     return res.status(200).json(`${res.locals.user.username}'s profile has been successfully created`)
 
 })

@@ -5,11 +5,16 @@ const express = require('express');
 
 // Import of all router
 const router = express.Router();
+const PSQLRouter = require('./PostgresSQLRouter.js');
+const NSQLRouter = require('./NoSQLRouter.js')
+const SMRouter = require('./SchemaModelRouter.js');
+
 
 
 // Master API router
-// router.use('/winelist', wineRouter);
-// router.use('/searchtest', searchRouter);
+router.use('/PSQL', PSQLRouter);
+router.use('/NSQL', NSQLRouter);
+// router.use('/NSQL', SMRouter);
 
 
 module.exports = router;

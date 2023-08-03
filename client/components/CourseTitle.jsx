@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CourseTitle({ title, unitList, link }) {
+export default function CourseTitle ({ title, unitList, link }) {
   
   const units = Object.keys(unitList); 
 
