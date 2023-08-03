@@ -69,6 +69,26 @@
 .unitTiles div {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.unitNav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.unitNavLeft ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.unitNavRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
 }
 
 .tileContainer {
@@ -80,7 +100,13 @@
 #overviewContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+}
+
+.instructionBox {
+  display: flex;
+  width: 60%;
+
 }
 
 
