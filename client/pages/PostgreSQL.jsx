@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Outlet } from "react-router-dom";
 import TableOfContents from '../components/TableOfContents.jsx';
 import UnitTiles from '../components/UnitTiles.jsx';
+import Footer from '../components/Footer.jsx'
 
 export default function PostgreSQL () {
   const units =  {
@@ -22,6 +23,9 @@ export default function PostgreSQL () {
             <UnitTiles key={unit[0]} unit={unit[0]} link={unit[1]} />
           ))}
         </div>
+      </div>
+      <div className='footer'>
+        <Footer/>
       </div>
     </>
   );

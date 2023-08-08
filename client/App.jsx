@@ -3,7 +3,9 @@ import { HashRouter, BrowserRouter, Router, Route, Redirect, Routes } from 'reac
 import Nav from './components/Nav.jsx';
 import Home from './pages/Home.jsx';
 import Overview from './pages/Overview.jsx';
-import OV1 from './components/Overview/OV1.jsx';
+import OV1 from './pages/Overview/OV1.jsx'
+import OV2 from './pages/Overview/OV2.jsx';
+import OV3 from './pages/Overview/OV3.jsx';
 import PostgreSQL from './pages/PostgreSQL.jsx';
 import NoSQL from './pages/NoSQL.jsx';
 import SchemaModel from './pages/SchemaModel.jsx';
@@ -19,6 +21,8 @@ export default function App(){
             <Route index element={<Home />} />
             <Route path="Overview" element={<Overview />} />
             <Route path="OV1" element={<OV1 />} />
+            <Route path="OV2" element={<OV2 />} />
+            <Route path="OV3" element={<OV3 />} />
             <Route path="PostgreSQL" element={<PostgreSQL />} />
             <Route path="NoSQL" element={<NoSQL />} />
             <Route path="SchemaModel" element={<SchemaModel />} />

@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import PastProjects from '../components/SchemaModel/PastProjects.jsx';
 import InputButton from '../components/SchemaModel/InputButton.jsx';
 import SchemaMaker from '../components/SchemaModel/SchemaMaker.jsx';
+import Footer from '../components/Footer.jsx'
 import { Router, Route, Redirect, Routes } from 'react-router-dom';
 
 
@@ -122,6 +123,9 @@ return (
             </span>
             <div>PastProjects</div>
             <SchemaMaker kvpArr={kvpArr} schemaFunc={schemaFunc} currentDocument={currentDocument} />
+            <div className='footer'>
+               <Footer/>
+            </div>
           </>
         )}
       />

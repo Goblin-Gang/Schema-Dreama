@@ -2,12 +2,13 @@ import React from 'react'
 import { Link, Outlet } from "react-router-dom";
 import TableOfContents from '../components/TableOfContents.jsx'
 import UnitTiles from '../components/UnitTiles.jsx';
+import Footer from '../components/Footer.jsx'
 
 export default function Overview () {
   const units =  {
     'What are Databases?': '/OV1',
-    'Types of Databases': '/OV2',
-    'What are Transactions?': '/OV3',
+    'What are Transactions?': '/OV2',
+    'Database Providers': '/OV3',
     'Resources': '/OV4'
   }
   
@@ -24,6 +25,11 @@ export default function Overview () {
           ))}
         </div>
       </div>
+      
+      <div className='footer'>
+        <Footer/>
+      </div>
+     
     </>
   );
 }

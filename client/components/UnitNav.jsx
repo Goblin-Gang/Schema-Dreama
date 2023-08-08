@@ -18,7 +18,7 @@ export default function UnitNav ({ links }) {
             <p>{'\u003E'}</p>
             <p>{links[1]}</p>
             <p>{'\u003E'}</p>
-            <p>What are Databases?</p>
+            <p>{links[2]}</p>
           </ul>
 
         </div>
@@ -30,7 +30,7 @@ export default function UnitNav ({ links }) {
           <p>Mark as Done</p>
           <p> | </p>
           <a>
-            <Link to={`${links[2]}`}>Next</Link>
+            <Link to={`${links[3]}`}>Next</Link>
           </a>   
         </div>
       </div>

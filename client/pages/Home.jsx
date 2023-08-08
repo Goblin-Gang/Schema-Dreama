@@ -6,12 +6,12 @@ export default function Home () {
 
   const courses = {
     overview: {
-      title: 'Overview of SchemaDreama',
+      title: 'Overview of Databases',
       linkz: '/Overview',
       units:  {
         'What are Databases?': '/OV1',
-        'Types of Databases': '/OV2',
-        'What are Transactions?': '/OV3',
+        'What are Transactions?': '/OV2',
+        'Database Providers': '/OV3',
         'Resources': '/OV4'
       },
     },
