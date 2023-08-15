@@ -5,8 +5,8 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useNavigate, Navigate  } from 'react-router-dom';
 
 const supabase = createClient(
-  'https://aoypnczayvorgnecyuan.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFveXBuY3pheXZvcmduZWN5dWFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTE2ODQ5NzcsImV4cCI6MjAwNzI2MDk3N30.iR2ojpSxZ7pad2oZ1zFLbIZ7pNjDNLqTPBBK8jvUKRQ'
+  process.env.REACT_APP_SUPABASE_URL,
+  process.env.REACT_APP_SUPABASE_ANON_KEY
 )
 
 export default function login () {
