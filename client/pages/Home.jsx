@@ -1,40 +1,11 @@
 import React from 'react'
+import { useOutletContext, Link, Outlet } from "react-router-dom";
 import CourseTitle from '../components/CourseTitle.jsx';
 import Footer from '../components/Footer.jsx';
 
 export default function Home () {
 
-  const courses = {
-    overview: {
-      title: 'Overview of Databases',
-      linkz: '/Overview',
-      units:  {
-        'What are Databases?': '/OV1',
-        'What are Transactions?': '/OV2',
-        'Database Providers': '/OV3',
-        'Resources': '/OV4'
-      },
-    },
-    postgresSQL: {
-      title: 'Unit 1: PostgreSQL',
-      linkz: '/PostgreSQL',
-      units:  {
-        'What is a PostgreSQL Database?': '/PSQL1',
-        'Table Setup': '/PSQL2',
-        'CRUD Transactions': '/PSQL3'
-      },
-    },
-    noSQL: {
-      title: 'Unit 2: NoSQL',
-      linkz: '/NoSQL',
-      units:  {
-        'What is a NoSQL Database?': '/NSQL1',
-        'Schema Setup': '/NSQL2',
-        'CRUD Transactions': '/NSQL3'
-      },
-
-    }
-  }
+  const courses = useOutletContext()
 
   const courseDisplay = [];
 

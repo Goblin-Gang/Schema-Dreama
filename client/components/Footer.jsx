@@ -8,10 +8,10 @@ export default function Footer (){
           <div>
             <ul>
               <a>
-                <Link to="/Team">Team</Link>
+                <Link to="/Home/Team">Team</Link>
               </a>
               <a>
-                <Link to="/Contact">Contact Us</Link>
+                <Link to="/Home/Contact">Contact Us</Link>
               </a>
             </ul>
           </div>

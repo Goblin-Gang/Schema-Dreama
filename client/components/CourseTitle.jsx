@@ -22,7 +22,7 @@ export default function CourseTitle ({ title, unitList, link }) {
           <p>100% (5/5) Complete</p>
 
           <div>
-            <Link to={link}>
+            <Link to={`/Home${link}`}>
               <button type='button'>
                 Unit Complete
               </button>

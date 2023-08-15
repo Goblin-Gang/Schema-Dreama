@@ -9,25 +9,39 @@ import OV3 from './pages/Overview/OV3.jsx';
 import PostgreSQL from './pages/PostgreSQL.jsx';
 import NoSQL from './pages/NoSQL.jsx';
 import SchemaModel from './pages/SchemaModel.jsx';
-import Login from './components/Authentication/Login.jsx';
+// import Login from './components/Authentication/Login.jsx';
+import Login from './pages/Login.jsx'
 import SignUp from './components/Authentication/SignUp.jsx';
 import Team from './pages/Team.jsx';
 import Contact from './pages/Contact.jsx';
 
+
+
 export default function App(){
     return (
         <Routes>
-          <Route path="/" element={<Nav />}>
+          <Route path="/" element={<Login />}/>
+          <Route path="Home" element={<Nav/>}>
             <Route index element={<Home />} />
-            <Route path="Overview" element={<Overview />} />
-            <Route path="OV1" element={<OV1 />} />
-            <Route path="OV2" element={<OV2 />} />
-            <Route path="OV3" element={<OV3 />} />
-            <Route path="PostgreSQL" element={<PostgreSQL />} />
-            <Route path="NoSQL" element={<NoSQL />} />
+              <Route path="Overview" > 
+                <Route index element={<Overview/>}/>
+                <Route path="OV1" element={<OV1 />} />
+                <Route path="OV2" element={<OV2 />} />
+                <Route path="OV3" element={<OV3 />} />
+              </Route>
+              <Route path="PostgreSQL" >
+                <Route index element={<PostgreSQL />} />
+                <Route path="PSQL1" element={<OV1 />} />
+                <Route path="PSQL2" element={<OV2 />} />
+                <Route path="PSQL3" element={<OV3 />} />
+              </Route>
+              <Route path="NoSQL" >
+                <Route index element={<NoSQL />} />
+                <Route path="NSQL1" element={<OV1 />} />
+                <Route path="NSQL2" element={<OV2 />} />
+                <Route path="NSQL3" element={<OV3 />} />
+              </Route>
             <Route path="SchemaModel" element={<SchemaModel />} />
-            <Route path="Login" element={<Login />} />
-            <Route path="SignUp" element={<SignUp />} />
             <Route path="Team" element={<Team />} />
             <Route path="Contact" element={<Contact />} />
           </Route>

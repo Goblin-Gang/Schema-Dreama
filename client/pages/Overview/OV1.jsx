@@ -3,7 +3,7 @@ import UnitNav from '../../components/UnitNav.jsx';
 
 export default function OV1 () {
 
-  const links = ['Overview','OV1','What are Databases?','/OV2'];
+  const links = ['/Overview','OV1','What are Databases?','/OV2'];
 
   return (
     <>

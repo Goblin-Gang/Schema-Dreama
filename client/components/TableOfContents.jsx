@@ -6,15 +6,16 @@ export default function TableOfContents (){
         <>
         <ul className="tableOfConents">
           <a>
-           <Link to="/Overview">Overview</Link>
+           <Link to="/Home/Overview">Overview</Link>
           </a>
           <a>
-           <Link to="/PostgresQL">PostgresSQL</Link>
+           <Link to="/Home/PostgresQL">PostgresSQL</Link>
           </a>
           <a>
-           <Link to="/NoSQL">NoSQL</Link>
+           <Link to="/Home/NoSQL">NoSQL</Link>
           </a>
         </ul>
+
         </>
     );
 }

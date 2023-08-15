@@ -13,7 +13,7 @@ export default function UnitNav ({ links }) {
             </a>
             <p>{'\u003E'}</p>
             <a>
-              <Link to={`/${links[0]}`}>{links[0]}</Link>
+              <Link to={`/Home${links[0]}`}>{links[0].slice(1)}</Link>
             </a>
             <p>{'\u003E'}</p>
             <p>{links[1]}</p>
@@ -30,7 +30,7 @@ export default function UnitNav ({ links }) {
           <p>Mark as Done</p>
           <p> | </p>
           <a>
-            <Link to={`${links[3]}`}>Next</Link>
+            <Link to={`/Home${links[0]}${links[3]}`}>Next</Link>
           </a>   
         </div>
       </div>
