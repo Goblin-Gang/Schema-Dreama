@@ -6,6 +6,8 @@ import Overview from './pages/Overview.jsx';
 import OV1 from './pages/Overview/OV1.jsx'
 import OV2 from './pages/Overview/OV2.jsx';
 import OV3 from './pages/Overview/OV3.jsx';
+import OV4 from './pages/Overview/OV4.jsx';
+import OV5 from './pages/Overview/OV5.jsx';
 import PostgreSQL from './pages/PostgreSQL.jsx';
 import NoSQL from './pages/NoSQL.jsx';
 import SchemaModel from './pages/SchemaModel.jsx';
@@ -17,7 +19,7 @@ import Contact from './pages/Contact.jsx';
 
 
 
-export default function App(){
+export default function App (){
     return (
         <Routes>
           <Route path="/" element={<Login />}/>
@@ -28,6 +30,8 @@ export default function App(){
                 <Route path="OV1" element={<OV1 />} />
                 <Route path="OV2" element={<OV2 />} />
                 <Route path="OV3" element={<OV3 />} />
+                <Route path="OV4" element={<OV4 />} />
+                <Route path="OV5" element={<OV5 />} />
               </Route>
               <Route path="PostgreSQL" >
                 <Route index element={<PostgreSQL />} />

@@ -9,12 +9,9 @@ const PSQLRouter = require('./PostgresSQLRouter.js');
 const NSQLRouter = require('./NoSQLRouter.js')
 const SMRouter = require('./SchemaModelRouter.js');
 
-
-
 // Master API router
-router.use('/PSQL', PSQLRouter);
-router.use('/NSQL', NSQLRouter);
-// router.use('/NSQL', SMRouter);
-
+router.use('/PostgresSQL', PSQLRouter);
+router.use('/NoSQL', NSQLRouter);
+router.use('/SchemaModel', SMRouter);
 
 module.exports = router;

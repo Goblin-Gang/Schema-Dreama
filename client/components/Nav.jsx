@@ -6,8 +6,8 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useNavigate, Navigate  } from 'react-router-dom';
 
 const supabase = createClient(
-  'https://aoypnczayvorgnecyuan.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFveXBuY3pheXZvcmduZWN5dWFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTE2ODQ5NzcsImV4cCI6MjAwNzI2MDk3N30.iR2ojpSxZ7pad2oZ1zFLbIZ7pNjDNLqTPBBK8jvUKRQ'
+  process.env.REACT_APP_SUPABASE_URL,
+  process.env.REACT_APP_SUPABASE_ANON_KEY
 )
 
 export default function Nav (){
@@ -41,8 +41,9 @@ export default function Nav (){
       units:  {
         'What are Databases?': '/OV1',
         'What are Transactions?': '/OV2',
-        'Database Providers': '/OV3',
-        'Resources': '/OV4'
+        'CRUD Transactions': '/OV3',
+        'Database Providers': '/OV4',
+        'Resources': '/OV5'
       },
     },
     postgresSQL: {
@@ -51,7 +52,10 @@ export default function Nav (){
       units:  {
         'What is a PostgreSQL Database?': '/PSQL1',
         'Table Setup': '/PSQL2',
-        'CRUD Transactions': '/PSQL3'
+        'Create': '/PSQL3',
+        'Read': '/PSQL4',
+        'Update': '/PSQL5',
+        'Delete': '/PSQL6'
       },
     },
     noSQL: {
@@ -60,7 +64,10 @@ export default function Nav (){
       units:  {
         'What is a NoSQL Database?': '/NSQL1',
         'Schema Setup': '/NSQL2',
-        'CRUD Transactions': '/NSQL3'
+        'Create': '/NSQL3',
+        'Read': '/NSQL4',
+        'Update': '/NSQL5',
+        'Delete': '/NSQL6'
       },
 
     }

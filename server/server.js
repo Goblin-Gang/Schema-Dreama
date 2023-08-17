@@ -52,38 +52,7 @@ mongoose.connect(MONGO_URI)
 
 //GET for static HTML
 
-app.use('/api', routesRouter)
-
-
-
-//POST for create document
-app.post('/', formController.createDocument, (req, res) => {
-    return res.status(200).json(res.locals.newDocument)
-})
-
-//DELETE for delete document
-app.delete('/', formController.deleteDocument, (req, res) => {
-    return res.status(200).json(res.locals.result)
-})
-
-
-//PATCH for update document
-
-app.patch('/', formController.updateDocument, (req, res) => {
-    return res.status(200).json(res.locals.updatedDoc)
-})
-
-
-//GET to return all past documents
-app.get('/getalldocuments', formController.getAllDocuments, (req, res) => {
-    return res.status(200).json(res.locals.allDocuments)
-});
-
-//GET for selecting past document
-
-app.get('/:id', formController.getOneDocument, (req, res) => {
-    return res.status(200).json(res.locals.retrievedDocument)
-})
+app.use('/Home', routesRouter)
 
 app.post('/login', userController.verifyLogin, (req, res) => {
     return res.status(200).json(res.locals)
@@ -91,7 +60,6 @@ app.post('/login', userController.verifyLogin, (req, res) => {
 
 app.post('/signup', userController.signUp, (req, res) => {
     return res.status(200).json(`${res.locals.user.username}'s profile has been successfully created`)
-
 })
 
 //------------------ERROR HANDLERS------------------
@@ -109,8 +77,5 @@ app.use((err, req, res, next) => {
     console.log(errorObj.log);
     return res.status(errorObj.status).json(errorObj.message);
 })
-
-
-
 
 module.exports = app;

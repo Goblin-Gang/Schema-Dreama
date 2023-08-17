@@ -1,5 +1,5 @@
 const express = require('express');
-const NSQLController = require('../controllers/NSQLController.js');
+const OverviewController = require('../controllers/OverviewController.js');
 
 
 const router = express.Router();

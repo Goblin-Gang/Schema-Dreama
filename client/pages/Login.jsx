@@ -10,9 +10,7 @@ const supabase = createClient(
 )
 
 export default function login () {
-  const [session, setSession] = useState(null)
-  console.log(process.env.REACT_APP_SUPABASE_URL)
-  console.log(process.env.REACT_APP_SUPABASE_ANON_KEY)
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {

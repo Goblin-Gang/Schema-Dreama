@@ -8,6 +8,4 @@ router.get('/', (req, res) => {
   res.status(200).json('you gucci')
 })
 
-
-
 module.exports = router;
